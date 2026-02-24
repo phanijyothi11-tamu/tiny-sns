@@ -1,0 +1,15 @@
+# Ignore compiled files
+*.o
+*.out
+*.exe
+
+# Ignore binaries
+tsc
+tsd
+
+# OS junk
+.DS_Store
+__MACOSX/
+
+# logs
+*.log
