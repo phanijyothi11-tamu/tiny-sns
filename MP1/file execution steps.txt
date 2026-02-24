@@ -1,0 +1,7 @@
+docker exec -it csce438_container bash
+cd /home/csce438/mp1_skeleton
+make clean
+make -j4
+./tsd -p 3010
+./tsc -h localhost -p 3010 -u u1
+./tsc -h localhost -p 3010 -u bob

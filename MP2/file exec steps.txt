@@ -1,0 +1,16 @@
+start docker desktop
+docker cp "C:\Users\kurad\OneDrive\Desktop\3rd SEM\DPS\MP2" csce438_container:/home/csce438/mp2_skeleton // copy files to docker in powershell execute it
+docker exec -it csce438_container bash 
+cd /home/csce438/mp2_skeleton
+export PKG_CONFIG_PATH=/home/csce438/.local/lib/pkgconfig:/home/csce438/grpc/third_party/re2:/home/csce438/.local/share/pkgconfig
+make clean
+make -j4
+
+
+./coordinator -p 9090
+
+./tsd -c 1 -s 1 -h localhost -k 9090 -p 10000
+./tsd -c 2 -s 2 -h localhost -k 9090 -p 10001
+
+./tsc -h localhost -k 9090 -u 1
+./tsc -h localhost -k 9090 -u 2
